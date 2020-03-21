@@ -1,72 +1,41 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        TechBlog
-      </h1>
-      <h2 class="subtitle">
-        Tech Blog
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
-  </div>
+  <el-row :gutter="15" type="flex" justify="center">
+    <el-col :span="12">
+      <ArticleItem
+        v-for="article in articles"
+        :key="article.id"
+        :title="article.title"
+        :brief="article.brief"
+        :title_en="article.title_en"
+        :tags="article.tags"
+      />
+    </el-col>
+    <el-col :span="4">
+      <el-card :body-style="{ padding: '0px' }">
+        <img width="100%" src="@/assets/img/profile-square.jpg" class="image" />
+        <div style="padding: 14px;">
+          <div>
+            欢迎来到我的博客~
+          </div>
+        </div>
+      </el-card>
+    </el-col>
+  </el-row>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-
+import ArticleItem from "@/components/article/item.vue";
 export default {
+  async asyncData(ctx) {
+    const res = await ctx.$axios.get("/api/articles/all");
+    return {
+      articles: res.data
+    };
+  },
   components: {
-    Logo
+    ArticleItem
   }
-}
+};
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
+<style></style>

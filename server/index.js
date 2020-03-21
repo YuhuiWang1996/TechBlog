@@ -1,6 +1,17 @@
 const Koa = require('koa')
 const consola = require('consola')
-const { Nuxt, Builder } = require('nuxt')
+const {
+  Nuxt,
+  Builder
+} = require('nuxt')
+
+const mongoose = require('mongoose')
+const bodyParser = require('koa-bodyparser')
+const json = require('koa-json')
+const dbConfig = require('./dbs/config')
+const articles = require('./interface/articles')
+
+consola.log(dbConfig)
 
 const app = new Koa()
 
@@ -8,14 +19,23 @@ const app = new Koa()
 const config = require('../nuxt.config.js')
 config.dev = app.env !== 'production'
 
-async function start () {
+async function start() {
   // Instantiate nuxt.js
   const nuxt = new Nuxt(config)
 
   const {
     host = process.env.HOST || '127.0.0.1',
-    port = process.env.PORT || 3000
+      port = process.env.PORT || 3000
   } = nuxt.options.server
+
+  app.use(bodyParser({
+    extendTypes: ['json', 'form', 'text']
+  }))
+  app.use(json())
+
+  mongoose.connect(dbConfig.dbs, {
+    useNewUrlParser: true
+  })
 
   await nuxt.ready()
   // Build in development
@@ -23,6 +43,8 @@ async function start () {
     const builder = new Builder(nuxt)
     await builder.build()
   }
+
+  app.use(articles.routes()).use(articles.allowedMethods())
 
   app.use((ctx) => {
     ctx.status = 200

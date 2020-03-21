@@ -1,7 +1,7 @@
 module.exports = {
   server: {
-    port: 80, // default: 3000
-    host: '0.0.0.0' // default: localhost
+    port: 3001, // default: 3000
+    // host: '0.0.0.0' // default: localhost
   },
   mode: 'universal',
   /*
@@ -38,13 +38,19 @@ module.exports = {
    ** Global CSS
    */
   css: [
-    'element-ui/lib/theme-chalk/index.css'
+    'element-ui/lib/theme-chalk/index.css',
+    'element-ui/lib/theme-chalk/reset.css',
+    '@assets/css/main.css'
   ],
   /*
    ** Plugins to load before mounting the App
    */
   plugins: [
-    '@/plugins/element-ui'
+    '@/plugins/element-ui',
+    {
+      src: '@/plugins/vue-mavon-editor',
+      srr: false
+    }
   ],
   /*
    ** Nuxt.js dev-modules
@@ -53,7 +59,16 @@ module.exports = {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: [
+    // Doc: https://github.com/nuxt-community/axios-module#usage
+    '@nuxtjs/axios'
+  ],
+  /*
+   ** Axios module configuration
+   */
+  axios: {
+    // See https://github.com/nuxt-community/axios-module#options
+  },
   /*
    ** Build configuration
    */
