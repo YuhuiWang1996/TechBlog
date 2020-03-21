@@ -11,8 +11,6 @@ const json = require('koa-json')
 const dbConfig = require('./dbs/config')
 const articles = require('./interface/articles')
 
-consola.log(dbConfig)
-
 const app = new Koa()
 
 // Import and Set Nuxt.js options
