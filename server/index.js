@@ -22,8 +22,8 @@ async function start() {
   const nuxt = new Nuxt(config)
 
   const {
-    host = process.env.HOST || '127.0.0.1',
-      port = process.env.PORT || 3000
+    host = process.env.HOST || '0.0.0.0',
+      port = process.env.PORT || 80
   } = nuxt.options.server
 
   app.use(bodyParser({

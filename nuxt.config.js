@@ -1,7 +1,7 @@
 module.exports = {
   server: {
-    port: 3001, // default: 3000
-    // host: '0.0.0.0' // default: localhost
+    port: 80, // default: 3000
+    host: '0.0.0.0' // default: localhost
   },
   mode: 'universal',
   /*
@@ -68,6 +68,11 @@ module.exports = {
    */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+    proxy: true
+  },
+
+  proxy: {
+    '/api/': 'http://www.wtech.me'
   },
   /*
    ** Build configuration
