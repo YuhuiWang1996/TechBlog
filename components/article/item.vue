@@ -6,7 +6,7 @@
           title
         }}</nuxt-link>
       </span>
-      <Tag :tags="tags" :type="type" />
+      <Tag :showType="showType" :tags="tags" :type="type" />
     </div>
     <div class="text item">
       {{ brief }}
@@ -59,6 +59,10 @@ export default {
     type: {
       type: String,
       default: ""
+    },
+    showType: {
+      type: Boolean,
+      default: false
     }
   }
 };

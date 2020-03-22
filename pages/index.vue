@@ -20,7 +20,7 @@
     </el-row>
     <el-row :gutter="10" type="flex" justify="center">
       <el-col :xs="24" :sm="24" :md="16" :lg="14">
-        <ArticleList :articles="articles" />
+        <ArticleList :showType="true" :articles="articles" />
       </el-col>
       <el-col class="hidden-sm-and-down" :md="6" :lg="4">
         <el-card :body-style="{ padding: '0px' }">

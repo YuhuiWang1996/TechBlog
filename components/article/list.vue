@@ -1,31 +1,49 @@
 <template>
   <div>
-    <div v-if="showTagsSearch" style="display: block; margin-top:10px;">
-      <span style="float: right; line-height:32px;">
-        <el-tag type="info">标签查询</el-tag>
-      </span>
-      <el-tag
-        :key="tag"
-        v-for="tag in dynamicTags"
-        closable
-        :disable-transitions="false"
-        @close="handleClose(tag)"
-      >
-        {{ tag }}
-      </el-tag>
-      <el-input
-        class="input-new-tag"
-        v-if="inputVisible"
-        v-model="inputValue"
-        ref="saveTagInput"
-        size="small"
-        @keyup.enter.native="handleInputConfirm"
-        @blur="handleInputConfirm"
-      >
-      </el-input>
-      <el-button v-else class="button-new-tag" size="small" @click="showInput">
-        + 标签
-      </el-button>
+    <div
+      v-if="showTagsSearch || showContentSearch"
+      style="display: block; margin-top:10px;"
+    >
+      <el-row :gutter="10">
+        <el-col v-if="showTagsSearch" :xs="12" :sm="14" :md="16" :lg="16">
+          <el-tag
+            :key="tag"
+            v-for="tag in dynamicTags"
+            closable
+            :disable-transitions="false"
+            @close="handleClose(tag)"
+          >
+            {{ tag }}
+          </el-tag>
+          <el-input
+            class="input-new-tag"
+            v-if="inputVisible"
+            v-model="inputValue"
+            ref="saveTagInput"
+            size="small"
+            @keyup.enter.native="handleInputConfirm"
+            @blur="handleInputConfirm"
+          >
+          </el-input>
+          <el-button
+            v-else
+            class="button-new-tag"
+            size="small"
+            @click="showInput"
+          >
+            + 标签筛选
+          </el-button>
+        </el-col>
+        <el-col v-if="showContentSearch" :xs="12" :sm="10" :md="8" :lg="8">
+          <el-input
+            type="text"
+            placeholder="关键词搜索"
+            v-model="searchText"
+            maxlength="20"
+            show-word-limit
+          ></el-input>
+        </el-col>
+      </el-row>
     </div>
     <el-alert
       style="margin-top:20px"
@@ -40,6 +58,7 @@
     <div v-else>
       <ArticleItem
         v-for="article in curr_articles"
+        :showType="showType"
         :key="article.id"
         :title="article.title"
         :brief="article.brief"
@@ -56,10 +75,12 @@ import ArticleItem from "@/components/article/item.vue";
 export default {
   data() {
     return {
+      searchText: "",
       dynamicTags: [],
       inputVisible: false,
       inputValue: "",
-      curr_articles: this.articles
+      curr_articles: this.articles,
+      activeNames: []
     };
   },
   methods: {
@@ -81,18 +102,31 @@ export default {
       }
       this.inputVisible = false;
       this.inputValue = "";
+    },
+    updateArticles(tags, keyword) {
+      let self = this;
+      self.curr_articles = self.articles.filter(article => {
+        if (
+          article.title.indexOf(keyword) > -1 ||
+          article.brief.indexOf(keyword) > -1
+        ) {
+          for (let i = 0; i < tags.length; i++) {
+            if (!article.tags.includes(tags[i])) return false;
+          }
+          return true;
+        }
+        return false;
+      });
     }
   },
   watch: {
     dynamicTags(newVal) {
       let self = this;
-      console.log(newVal);
-      self.curr_articles = self.articles.filter(article => {
-        for (let i = 0; i < newVal.length; i++) {
-          if (!article.tags.includes(newVal[i])) return false;
-        }
-        return true;
-      });
+      self.updateArticles(newVal, self.searchText);
+    },
+    searchText(newVal) {
+      let self = this;
+      self.updateArticles(self.dynamicTags, newVal);
     }
   },
   components: {
@@ -104,6 +138,14 @@ export default {
       default: []
     },
     showTagsSearch: {
+      type: Boolean,
+      default: false
+    },
+    showType: {
+      type: Boolean,
+      default: false
+    },
+    showContentSearch: {
       type: Boolean,
       default: false
     }

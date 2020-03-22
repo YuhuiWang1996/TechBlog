@@ -28,6 +28,9 @@
           <el-menu-item index="stories">
             <nuxt-link to="/stories">杂记</nuxt-link>
           </el-menu-item>
+          <el-menu-item index="/contact">
+            <nuxt-link to="/contact">互动</nuxt-link>
+          </el-menu-item>
         </el-menu>
       </div>
     </el-col>

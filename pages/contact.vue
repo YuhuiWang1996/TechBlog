@@ -3,12 +3,17 @@
     <el-row :gutter="10" type="flex" justify="center">
       <el-col :xs="24" :sm="24" :md="18" :lg="16">
         <el-collapse v-model="activeNames">
-          <el-collapse-item title="关于我 About me" name="1">
+          <el-collapse-item title="互动 Contact" name="1">
             <div>
-              目前纽约大学研一，专业计算机科学，热爱前端，想要做一个有技术追求的程序员。
+              如果你有任何想要讨论的内容，请在下方留言，或给我发邮件garywangyh@gmail.com
             </div>
           </el-collapse-item>
         </el-collapse>
+      </el-col>
+    </el-row>
+    <el-row :gutter="10" type="flex" justify="center">
+      <el-col :xs="24" :sm="24" :md="18" :lg="16">
+        
       </el-col>
     </el-row>
   </div>

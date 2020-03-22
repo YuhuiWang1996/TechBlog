@@ -8,7 +8,7 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || '',
+    title: '王宇辉的个人博客 | 前端进阶之路',
     meta: [{
         charset: 'utf-8'
       },
@@ -19,7 +19,11 @@ module.exports = {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
+        content: '记录学习与生活'
+      },
+      {
+        name: 'keywords',
+        content: '王宇辉，前端'
       }
     ],
     link: [{
