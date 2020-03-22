@@ -1,18 +1,14 @@
 <template>
   <el-container>
-    <el-header style="min-height:80px">
+    <el-header style="height: auto;">
       <my-header />
     </el-header>
-    <el-container>
-      <el-container>
-        <el-main>
-          <nuxt />
-        </el-main>
-        <el-footer>
-          <my-footer />
-        </el-footer>
-      </el-container>
-    </el-container>
+    <el-main>
+      <nuxt />
+    </el-main>
+    <el-footer>
+      <my-footer />
+    </el-footer>
   </el-container>
 </template>
 

@@ -24,6 +24,9 @@ const ArticlesSchema = new Schema({
     type: String,
     require: true
   },
+  type: {
+    type: String,
+  },
   tags: {
     type: Array
   },

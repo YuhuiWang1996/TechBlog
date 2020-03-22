@@ -1,12 +1,12 @@
 <template>
   <el-row>
-    <el-col :span="8">
+    <el-col :xs="24" :sm="24" :md="8" :lg="8">
       <div class="header-content logo">
         <p>王 宇 辉 <span>Yuhui Wang</span></p>
         <p>前 端 进 阶 之 路</p>
       </div>
     </el-col>
-    <el-col :span="16">
+    <el-col :xs="24" :sm="24" :md="16" :lg="16">
       <div class="header-content">
         <el-menu
           :default-active="activeIndex"
@@ -19,17 +19,14 @@
           <el-menu-item index="/about">
             <nuxt-link to="/about">关于我</nuxt-link>
           </el-menu-item>
-          <!-- <el-menu-item index="/js">
-            <nuxt-link to="/js">JavaScript</nuxt-link>
+          <el-menu-item index="study_notes">
+            <nuxt-link to="/study_notes">学习笔记</nuxt-link>
           </el-menu-item>
-          <el-menu-item index="/nodejs">
-            <nuxt-link to="/nodejs">NodeJS</nuxt-link>
-          </el-menu-item>
-          <el-menu-item index="/archives">
-            <nuxt-link to="/archives">Archives</nuxt-link>
-          </el-menu-item> -->
           <el-menu-item index="articles">
             <nuxt-link to="/articles">文章</nuxt-link>
+          </el-menu-item>
+          <el-menu-item index="stories">
+            <nuxt-link to="/stories">杂记</nuxt-link>
           </el-menu-item>
         </el-menu>
       </div>
@@ -44,8 +41,14 @@ export default {
   },
   computed: {
     activeIndex() {
-      if (this.$route.path.indexOf('/articles/') > -1) {
-        return 'articles'
+      if (this.$route.path.indexOf("/articles") > -1) {
+        return "articles";
+      }
+      if (this.$route.path.indexOf("/study_notes") > -1) {
+        return "study_notes";
+      }
+      if (this.$route.path.indexOf("/stories") > -1) {
+        return "stories";
       }
       return this.$route.path;
     }

@@ -18,10 +18,30 @@ router.post('/insert', async (ctx) => {
   })
 })
 
-// 所有文章列表
+// 首页文章列表
 router.get('/all', async (ctx) => {
   try {
-    const result = await Articles.find({})
+    const result = await Articles.find({
+      showInHome: true,
+      showInArticles: true
+    })
+    ctx.body = result
+  } catch (e) {
+    ctx.body = {
+      code: -1,
+      data: {}
+    }
+  }
+})
+
+// 文章，杂记，学习日记列表
+router.get('/type', async (ctx) => {
+  const type = ctx.query.type;
+  try {
+    const result = await Articles.find({
+      'type': type,
+      showInArticles: true
+    })
     ctx.body = result
   } catch (e) {
     ctx.body = {

@@ -21,7 +21,6 @@
 export default {
   data() {
     return {
-      article_content: "",
       markdownOption: {
         // bold: true, // 粗体
         // italic: true, // 斜体
@@ -60,16 +59,9 @@ export default {
     };
   },
   props: {
-    doc: {
+    article_content: {
       type: String,
       default: ""
-    }
-  },
-  watch: {
-    async doc(newVal) {
-      let self = this;
-      const res = await self.$axios.get(newVal);
-      self.article_content = res.data;
     }
   }
 };

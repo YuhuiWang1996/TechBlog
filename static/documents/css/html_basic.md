@@ -16,7 +16,7 @@
     : 不一定有固定形状
   - inline-block
 - 按内容分
-  - ![Classified by content](../../doc/img/CSS-HTML-1.png)
+  - ![Classified by content](../../documents/img/CSS-HTML-1.png)
   - [more](https://html.spec.whatwg.org/multipage/dom.html#kinds-of-content)
 
 ## 嵌套关系
