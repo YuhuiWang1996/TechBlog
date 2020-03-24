@@ -24,6 +24,8 @@ router.get('/all', async (ctx) => {
     const result = await Articles.find({
       showInHome: true,
       showInArticles: true
+    }).sort({
+      'updateAt': -1
     })
     ctx.body = result
   } catch (e) {
@@ -41,6 +43,8 @@ router.get('/type', async (ctx) => {
     const result = await Articles.find({
       'type': type,
       showInArticles: true
+    }).sort({
+      'updateAt': -1
     })
     ctx.body = result
   } catch (e) {

@@ -1,11 +1,12 @@
 <template>
-  <div class="tag_container">
+  <div class="tag_container" style="line-height: 28px;">
     <el-tag
       v-for="(tag, idx) in tags"
       :key="idx"
       class="tags"
       type="success"
       size="small"
+      style="vertical-align: top;"
       >{{ tag }}</el-tag
     >
     <span v-if="showType">

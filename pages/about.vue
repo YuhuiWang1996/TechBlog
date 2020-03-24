@@ -5,7 +5,7 @@
         <el-collapse v-model="activeNames">
           <el-collapse-item title="关于我 About me" name="1">
             <div>
-              目前纽约大学研一，专业计算机科学，热爱前端，想要做一个有技术追求的程序员。
+              目前纽约大学研一，专业计算机科学，对软件开发的一切抱有热情，目前主攻前端。
             </div>
           </el-collapse-item>
         </el-collapse>

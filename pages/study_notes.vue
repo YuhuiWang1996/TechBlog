@@ -5,7 +5,10 @@
         <el-collapse v-model="activeNames">
           <el-collapse-item title="学习笔记 Study Notes" name="1">
             <div>
-              类似教程，又像是cheatsheet，记录学习过程
+              学习过程中的整理与总结，理解而不是搬运。
+            </div>
+            <div>
+              类似教程，又像是cheatsheet。
             </div>
           </el-collapse-item>
         </el-collapse>

@@ -65,6 +65,7 @@
         :title_en="article.title_en"
         :tags="article.tags"
         :type="article.type"
+        :updateAt="article.updateAt"
       />
     </div>
   </div>
