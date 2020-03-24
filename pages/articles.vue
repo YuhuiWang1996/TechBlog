@@ -11,15 +11,12 @@
         </el-collapse>
       </el-col>
     </el-row>
-    <el-row :gutter="10" type="flex" justify="center">
-      <el-col :xs="24" :sm="24" :md="18" :lg="16">
-        <ArticleList
-          :showContentSearch="true"
-          :showTagsSearch="true"
-          :articles="articles"
-        />
-      </el-col>
-    </el-row>
+    <ArticleList
+      :showContentSearch="true"
+      :showTagsSearch="true"
+      :articles="articles"
+      :showSide="false"
+    />
   </div>
 </template>
 

@@ -59,7 +59,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .header-content {
   height: 100%;
 }
@@ -83,5 +83,10 @@ export default {
 .logo > p:nth-child(2) {
   font-size: 18px;
   font-weight: lighter;
+}
+.el-menu-item > a {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 </style>

@@ -6,7 +6,6 @@
       class="tags"
       type="success"
       size="small"
-      style="vertical-align: top;"
       >{{ tag }}</el-tag
     >
     <span v-if="showType">
@@ -63,5 +62,6 @@ export default {
 }
 .tags {
   margin-right: 10px;
+  vertical-align: top;
 }
 </style>

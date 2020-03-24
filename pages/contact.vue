@@ -5,7 +5,7 @@
         <el-collapse v-model="activeNames">
           <el-collapse-item title="互动 Contact" name="1">
             <div>
-              如果你有任何想要讨论的内容，请在下方留言，或给我发邮件garywangyh@gmail.com
+              如果你有任何想要讨论的内容，欢迎给我发邮件garywangyh@gmail.com
             </div>
           </el-collapse-item>
         </el-collapse>

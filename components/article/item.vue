@@ -5,11 +5,11 @@
   >
     <el-card
       class="box-card"
-      shadow="hover"
+      shadow="always"
       v-bind:class="{ 'fixed-item': rank === 0 }"
     >
       <div slot="header" class="card-header clearfix">
-        <span style="color: #409EFF; font-weight:bold;">
+        <span style="color: #303133; font-weight:bold;">
           {{ title }}
         </span>
         <Tag :showType="showType" :tags="tags" :type="type" />
@@ -118,14 +118,18 @@ export default {
   padding-bottom: 4px;
 }
 
-.article-item .fixed-item {
-  border: 1px solid rgb(198, 226, 255);
-}
-
 .article-item .fixed-item:before {
   position: absolute;
   content: "";
   border-top: 12px solid rgb(102, 177, 255);
   border-right: 12px solid transparent;
+}
+
+.article-item .is-always-shadow {
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.08);
+}
+
+.article-item .is-always-shadow:hover {
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.14);
 }
 </style>
