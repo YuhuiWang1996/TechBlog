@@ -45,6 +45,9 @@ const ArticlesSchema = new Schema({
   updateAt: {
     type: Date,
     require: true
+  },
+  sort: {
+    type: Number
   }
 })
 

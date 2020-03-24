@@ -66,6 +66,7 @@
         :tags="article.tags"
         :type="article.type"
         :updateAt="article.updateAt"
+        :rank="article.rank"
       />
     </div>
   </div>

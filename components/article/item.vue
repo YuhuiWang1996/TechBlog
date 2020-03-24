@@ -3,7 +3,11 @@
     class="article-item"
     v-bind:to="'/doc/' + type_en + '/' + title_en"
   >
-    <el-card class="box-card" shadow="hover">
+    <el-card
+      class="box-card"
+      shadow="hover"
+      v-bind:class="{ 'fixed-item': rank === 0 }"
+    >
       <div slot="header" class="card-header clearfix">
         <span style="color: #409EFF; font-weight:bold;">
           {{ title }}
@@ -79,6 +83,10 @@ export default {
     showType: {
       type: Boolean,
       default: false
+    },
+    rank: {
+      type: Number,
+      default: 10
     }
   }
 };
@@ -108,5 +116,16 @@ export default {
 
 .article-item .el-card__body {
   padding-bottom: 4px;
+}
+
+.article-item .fixed-item {
+  border: 1px solid rgb(198, 226, 255);
+}
+
+.article-item .fixed-item:before {
+  position: absolute;
+  content: "";
+  border-top: 12px solid rgb(102, 177, 255);
+  border-right: 12px solid transparent;
 }
 </style>
