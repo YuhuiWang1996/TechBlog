@@ -80,8 +80,8 @@ export default {
       dynamicTags: [],
       inputVisible: false,
       inputValue: "",
-      curr_articles: this.articles,
-      activeNames: []
+      activeNames: [],
+      curr_articles: this.articles
     };
   },
   methods: {
@@ -106,15 +106,22 @@ export default {
     },
     updateArticles(tags, keyword) {
       let self = this;
+      console.log(self.articles);
       self.curr_articles = self.articles.filter(article => {
+        let title = article.title;
+        let brief = article.brief;
         if (
-          article.title.indexOf(keyword) > -1 ||
-          article.brief.indexOf(keyword) > -1
+          title.toLowerCase().indexOf(keyword.toLowerCase()) > -1 ||
+          brief.toLowerCase().indexOf(keyword.toLowerCase()) > -1
         ) {
-          for (let i = 0; i < tags.length; i++) {
-            if (!article.tags.includes(tags[i])) return false;
-          }
-          return true;
+          return (
+            tags.length == 0 ||
+            tags.some(tag => {
+              return article.tags.some(atag => {
+                return atag.toLowerCase().indexOf(tag.toLowerCase()) > -1;
+              });
+            })
+          );
         }
         return false;
       });
@@ -169,5 +176,8 @@ export default {
   width: 90px;
   margin-left: 10px;
   vertical-align: bottom;
+}
+.highlight {
+  color: #f56c6c;
 }
 </style>
