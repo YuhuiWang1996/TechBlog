@@ -21,7 +21,8 @@
       :showSide="true"
       :types="[
         { title: 'JavaScript', tags: ['JS'] },
-        { title: '网络相关', tags: ['HTTP'] }
+        { title: '网络相关', tags: ['HTTP'] },
+        { title: 'JS 设计模式', tags: ['JS', '设计模式'] }
       ]"
     />
   </div>
