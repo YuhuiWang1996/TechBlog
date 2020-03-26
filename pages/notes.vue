@@ -8,7 +8,7 @@
               比学习笔记更零散，一些独立问题的整理和思考
             </div>
             <div>
-              或是一些突发奇想
+              或是一些突发奇想，或是一些<em>TODO list</em>，先记下简单的理解，日后转移到学习笔记或文章中
             </div>
           </el-collapse-item>
         </el-collapse>

@@ -21,8 +21,9 @@
       :showSide="true"
       :types="[
         { title: 'JavaScript', tags: ['JS'] },
+        { title: 'JS设计模式', tags: ['JS', '设计模式'] },
         { title: '网络相关', tags: ['HTTP'] },
-        { title: 'JS 设计模式', tags: ['JS', '设计模式'] }
+        { title: 'Web前端性能优化', tags: ['前端性能优化'] }
       ]"
     />
   </div>

@@ -22,6 +22,9 @@ router.post('/insert', async (ctx) => {
 router.get('/all', async (ctx) => {
   try {
     const result = await Articles.find({
+      type: {
+        $ne: '便签'
+      },
       showInHome: true,
       showInArticles: true
     }).sort('rank').sort({

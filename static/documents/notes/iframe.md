@@ -1,0 +1,3 @@
+- **HTML内联框架元素 (<iframe>)** 表示嵌套的browsing context。它能够将**另一个HTML页面嵌入到当前页面中**。
+- 每个嵌入的浏览上下文（embedded browsing context）都有自己的会话历史记录(session history)和DOM树。
+  - 包含嵌入内容的浏览上下文称为父级浏览上下文。顶级浏览上下文（没有父级）通常是由 Window 对象表示的浏览器窗口。
