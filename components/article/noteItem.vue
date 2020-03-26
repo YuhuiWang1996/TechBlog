@@ -84,7 +84,7 @@ export default {
     },
     brief: {
       type: String,
-      default: "loading ... "
+      default: ""
     },
     tags: {
       type: Array,
