@@ -7,7 +7,7 @@
           :boxShadow="false"
           :navigation="false"
           :editable="false"
-          :toolbarsFlag="true"
+          :toolbarsFlag="toolbarsFlag"
           :toolbars="markdownOption"
           defaultOpen="preview"
           v-model="article_content"
@@ -62,6 +62,10 @@ export default {
     article_content: {
       type: String,
       default: ""
+    },
+    toolbarsFlag: {
+      type: Boolean,
+      default: true
     }
   }
 };

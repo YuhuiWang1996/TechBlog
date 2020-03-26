@@ -1,0 +1,3 @@
+- **SHTML不是HTML而是一种服务器 API,shtml是服务器动态产成的html**
+- shtml命名的网页文件里，使用了ssi的一些指令，就像asp中的指令，你可以在SHTML文件中写入SSI指令，当客户端访问这些shtml文件时，服务器端会把这些SHTML文件进行读取和解释，把SHTML文件中包含的SSI指令解释出来。
+- 就如php、aspx、asp、jsp一样，当shtml或者shtm中不包含服务器端可执行脚本时其作用和html或者htm是一样的。

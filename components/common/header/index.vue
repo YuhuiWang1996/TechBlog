@@ -22,6 +22,9 @@
           <el-menu-item index="study_notes">
             <nuxt-link to="/study_notes">学习笔记</nuxt-link>
           </el-menu-item>
+          <el-menu-item index="notes">
+            <nuxt-link to="/notes">便签</nuxt-link>
+          </el-menu-item>
           <el-menu-item index="articles">
             <nuxt-link to="/articles">文章</nuxt-link>
           </el-menu-item>
@@ -52,6 +55,9 @@ export default {
       }
       if (this.$route.path.indexOf("/stories") > -1) {
         return "stories";
+      }
+      if (this.$route.path.indexOf("/notes") > -1) {
+        return "notes";
       }
       return this.$route.path;
     }

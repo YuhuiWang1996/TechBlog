@@ -62,7 +62,7 @@
         v-if="showSide"
         class="hidden-md-and-up"
         :body-style="{ padding: '12px 20px' }"
-        style="margin-top: 15px;"
+        style="margin-top: 15px;line-height: 36px;"
         shadow="never"
       >
         <i class="el-icon-s-grid"></i>&nbsp;<strong>分类</strong>&nbsp;&nbsp;
@@ -97,7 +97,7 @@
         show-icon
       >
       </el-alert>
-      <div v-else>
+      <div v-else-if="!showContentInList">
         <ArticleItem
           v-for="article in curr_articles"
           :showType="showType"
@@ -109,6 +109,21 @@
           :type="article.type"
           :updateAt="article.updateAt"
           :rank="article.rank"
+        />
+      </div>
+      <div v-else>
+        <NoteItem
+          v-for="article in curr_articles"
+          :showType="showType"
+          :key="article.id"
+          :title="article.title"
+          :brief="article.brief"
+          :title_en="article.title_en"
+          :tags="article.tags"
+          :type="article.type"
+          :updateAt="article.updateAt"
+          :rank="article.rank"
+          :doc="article.doc"
         />
       </div>
     </el-col>
@@ -154,6 +169,7 @@
 
 <script>
 import ArticleItem from "@/components/article/item.vue";
+import NoteItem from "@/components/article/noteItem.vue";
 export default {
   data() {
     return {
@@ -169,7 +185,7 @@ export default {
   computed: {
     dynamicTags_unique: function() {
       this.dynamicTags = this.uniqueList(this.dynamicTags);
-      return this.uniqueList(this.dynamicTags);
+      return this.dynamicTags;
     }
   },
   methods: {
@@ -251,7 +267,8 @@ export default {
     }
   },
   components: {
-    ArticleItem
+    ArticleItem,
+    NoteItem
   },
   props: {
     articles: {
@@ -279,6 +296,10 @@ export default {
       default: () => []
     },
     fullScreen: {
+      type: Boolean,
+      default: false
+    },
+    showContentInList: {
       type: Boolean,
       default: false
     }

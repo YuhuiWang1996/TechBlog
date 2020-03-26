@@ -18,7 +18,7 @@ const ArticlesSchema = new Schema({
   },
   brief: {
     type: String,
-    require: true
+    require: false
   },
   doc: {
     type: String,
@@ -51,4 +51,4 @@ const ArticlesSchema = new Schema({
   }
 })
 
-module.exports = mongoose.model('Articles', ArticlesSchema)
+module.exports = mongoose.model('Article', ArticlesSchema, 'articles')

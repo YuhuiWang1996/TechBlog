@@ -8,6 +8,7 @@ const {
 const mongoose = require('mongoose')
 const bodyParser = require('koa-bodyparser')
 const json = require('koa-json')
+const pv = require('./middleware/pv')
 const dbConfig = require('./dbs/config')
 const articles = require('./interface/articles')
 
@@ -42,6 +43,7 @@ async function start() {
     await builder.build()
   }
 
+  app.use(pv())
   app.use(articles.routes()).use(articles.allowedMethods())
 
   app.use((ctx) => {
