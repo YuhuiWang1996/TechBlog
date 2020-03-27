@@ -1,6 +1,29 @@
 <template>
   <div class="article-item">
-    <el-card
+    <el-collapse class="box-card" @change="handleChange">
+      <el-collapse-item name="item">
+        <template slot="title">
+          {{ title }}
+          <span v-if="brief" style="color: #909399; margin-left:20px;">
+            {{ brief }}
+          </span>
+          <span style="margin-left:auto;">
+            <Tag :showType="showType" :tags="tags" :type="type" />
+          </span>
+        </template>
+        <div>
+          <Markdown :article_content="article_content" :toolbarsFlag="false" />
+          <el-row type="flex" justify="end">
+            <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
+              <el-divider content-position="right">{{
+                updateAt_str
+              }}</el-divider>
+            </el-col>
+          </el-row>
+        </div>
+      </el-collapse-item>
+    </el-collapse>
+    <!-- <el-card
       class="box-card"
       shadow="always"
       v-bind:class="{ 'fixed-item': rank === 0 }"
@@ -9,9 +32,7 @@
         <span style="color: #303133; font-weight:bold;">
           {{ title }}
         </span>
-        <span style="color: #606266; margin-left:15px;">
-          {{ brief }}
-        </span>
+        
         <Tag :showType="showType" :tags="tags" :type="type" />
       </div>
       <div>
@@ -22,7 +43,7 @@
           <el-divider content-position="right">{{ updateAt_str }}</el-divider>
         </el-col>
       </el-row>
-    </el-card>
+    </el-card> -->
   </div>
 </template>
 
@@ -55,7 +76,6 @@ export default {
       }
     },
     updateAt_str: function() {
-      this.getContent();
       return moment(this.updateAt).fromNow();
     }
   },
@@ -67,6 +87,9 @@ export default {
       } catch (e) {
         ctx.error({ statusCode: 404, message: "Post not found" });
       }
+    },
+    handleChange(val) {
+      if (val[0] === "item") this.getContent();
     }
   },
   props: {
@@ -157,5 +180,13 @@ export default {
 
 .article-item .v-note-wrapper {
   min-height: 0;
+}
+
+.article-item .el-collapse-item__arrow {
+  margin-left: 0;
+}
+
+.article-item .el-collapse-item__content {
+  padding: 0;
 }
 </style>
