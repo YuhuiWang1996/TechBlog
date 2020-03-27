@@ -141,11 +141,26 @@
 
   ```js
   function myAjax(url) {
-    const p = new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest()
       xhr.open('GET', url, true)
+      xhr.onreadystatechange = function() {
+        if (xhr.status === 4) {
+          if (xhr.status === 200) {
+            resolve(
+              JSON.parse(xhr.responseText)
+            )
+          } else if (xhr.status === 404 || xhr.status === 500) {
+            reject(new Error('404 not found'))
+          }
+        }
+      }
+      xhr.send(null)
     })
   }
+  myAjax('/')
+  .then(res => console.log(res))
+  .catch(e => console.error(err))
   ```
 
 - JQuery ajax
