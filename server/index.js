@@ -11,6 +11,7 @@ const json = require('koa-json')
 const pv = require('./middleware/pv')
 const dbConfig = require('./dbs/config')
 const articles = require('./interface/articles')
+const koaBody = require('koa-body');
 
 const app = new Koa()
 
@@ -31,7 +32,7 @@ async function start() {
     extendTypes: ['json', 'form', 'text']
   }))
   app.use(json())
-
+  
   mongoose.connect(dbConfig.dbs, {
     useNewUrlParser: true
   })

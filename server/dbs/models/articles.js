@@ -46,7 +46,7 @@ const ArticlesSchema = new Schema({
     type: Date,
     require: true
   },
-  sort: {
+  rank: {
     type: Number
   }
 })
