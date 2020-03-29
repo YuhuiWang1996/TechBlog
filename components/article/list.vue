@@ -221,7 +221,7 @@ export default {
         let brief = article.brief;
         if (
           title.toLowerCase().indexOf(keyword.toLowerCase()) > -1 ||
-          brief.toLowerCase().indexOf(keyword.toLowerCase()) > -1
+          (brief && brief.toLowerCase().indexOf(keyword.toLowerCase()) > -1)
         ) {
           return (
             tags.length == 0 ||
