@@ -110,7 +110,6 @@ export default {
         title_en: [
           { required: true, message: "请输入英文名称", trigger: "blur" }
         ],
-        brief: [{ required: true, message: "请输入简介", trigger: "blur" }],
         type: [{ required: true, message: "请选择类型", trigger: "change" }]
       },
       markdownOption: {

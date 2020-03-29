@@ -4,7 +4,11 @@
       <el-collapse-item name="item">
         <template slot="title">
           {{ title }}
-          <span v-if="brief" style="color: #909399; margin-left:20px;">
+          <span
+            class="hidden-xs-only"
+            v-if="brief"
+            style="color: #909399; margin-left:20px;"
+          >
             {{ brief }}
           </span>
           <span style="margin-left:auto;">
@@ -23,27 +27,6 @@
         </div>
       </el-collapse-item>
     </el-collapse>
-    <!-- <el-card
-      class="box-card"
-      shadow="always"
-      v-bind:class="{ 'fixed-item': rank === 0 }"
-    >
-      <div slot="header" class="card-header clearfix">
-        <span style="color: #303133; font-weight:bold;">
-          {{ title }}
-        </span>
-        
-        <Tag :showType="showType" :tags="tags" :type="type" />
-      </div>
-      <div>
-        <Markdown :article_content="article_content" :toolbarsFlag="false" />
-      </div>
-      <el-row type="flex" justify="end">
-        <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
-          <el-divider content-position="right">{{ updateAt_str }}</el-divider>
-        </el-col>
-      </el-row>
-    </el-card> -->
   </div>
 </template>
 
