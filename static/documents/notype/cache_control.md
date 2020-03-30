@@ -1,0 +1,3 @@
+- 缓存分为两种:强缓存和协商缓存，根据响应的 header 内容来决定。
+	- 强缓存相关字段有**expires**，**cache-control**。如果cache-control与expires同时存在的话，cache-control的优先级高于expires。状态码 : **200 (from cache)**
+	- 协商缓存相关字段有 Last-Modified/If-Modified-Since，Etag/If-None-Match。状态码 : **304(not modified)**
