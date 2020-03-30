@@ -18,7 +18,7 @@ router.post('/addImg', koaBody({
 }), async (ctx) => {
   const image = ctx.request.files.image;
   const reader = fs.createReadStream(image.path);
-  const filename = moment().unix() + '-' + parseInt(Math.random() * 100);
+  const filename = moment().unix() + '-' + parseInt(Math.random() * 100) + '.png';
   let filePath = path.join(__dirname, '../../static/documents/img/') + filename;
   const upStream = fs.createWriteStream(filePath);
   reader.pipe(upStream);
@@ -26,7 +26,7 @@ router.post('/addImg', koaBody({
   return ctx.body = {
     code: 0,
     data: {
-      filePath: `../img/${filename}`
+      filePath: `/img/${filename}`
     }
   };
 });
