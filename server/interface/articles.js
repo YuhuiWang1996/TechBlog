@@ -26,7 +26,7 @@ router.post('/addImg', koaBody({
   return ctx.body = {
     code: 0,
     data: {
-      filePath: `../img/${filename}`
+      filePath: `../../documents/img/${filename}`
     }
   };
 });
