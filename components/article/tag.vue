@@ -24,6 +24,15 @@
         <i class="el-icon-news"></i>
         杂记
       </el-tag>
+      <el-tag
+        v-else-if="type == '便签'"
+        type="warning"
+        class="tags"
+        size="small"
+      >
+        <i class="el-icon-news"></i>
+        便签
+      </el-tag>
     </span>
   </div>
 </template>

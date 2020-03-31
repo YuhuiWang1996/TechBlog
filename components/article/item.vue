@@ -46,6 +46,9 @@ export default {
       if (self.type === "杂记") {
         return "stories";
       }
+      if (self.type === "便签") {
+        return "notes";
+      }
     },
     updateAt_str: function() {
       return moment(this.updateAt).fromNow();
