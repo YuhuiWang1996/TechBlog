@@ -13,4 +13,4 @@
 - **Document.documentElement** 是一个会返回文档对象（document）的根元素的只读属性（如HTML文档的 <html> 元素）。
 
 - 示例
-![Screen Shot 20200330 at 8.56.56 PM.png](../../documents/img/1585620428-14.png){:height="200px"}
+![Screen Shot 20200330 at 8.56.56 PM.png](../../documents/img/1585620428-14.png)

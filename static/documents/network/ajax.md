@@ -96,7 +96,9 @@
   })
   ```
 
-- CORS - 服务器设置http header
+- CORS
+  - 服务器设置http header
+  - **Access-Control-Allow-Origin** 响应头指定了该响应的资源是否被允许与给定的origin共享。
 - Hash - Hash改变，页面不刷新
 - postMessage
   - HTML5标准
